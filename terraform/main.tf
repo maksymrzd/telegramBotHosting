@@ -21,8 +21,6 @@ resource "aws_instance" "my-tg-bot" {
       "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash",
       ". ~/.nvm/nvm.sh",
       "nvm install 16",
-      "sleep 1",
-      "npm i node-telegram-bot-api"
     ]
 
     connection {
