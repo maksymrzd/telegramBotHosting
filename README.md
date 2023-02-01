@@ -146,6 +146,7 @@ Then, in your CLI, enter this command to install required Node.js module:
 npm i node-telegram-bot-api
 ```
 <h2>Final Step</h2>
+
 In your CLI, enter commands:
 ```tf
 screen
