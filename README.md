@@ -44,6 +44,7 @@ resource "aws_security_group" "tgbotsecuritygroup" {
 Add `remote-exec` and `connection` blocks to your `aws_instance` block for terraform to connect to your instance and execute required commands.
 
 The first three commands in `remote_exec` block stand for updating all packages, installing git and cloning a public repository with required js files for bot.
+<br>
 The last three commands stand for installing node version manager, his activation and installing required node version.
 
 ```tf
@@ -131,9 +132,19 @@ terraform apply
 ```
 
 Then we have to connect to our EC2 instance either through SSH client or AWS.
+<br>
 Here we need to enter directory with our cloned files and change this line in app.js:
 ```tf
 const token = process.env.TOKEN
 ```
 Instead of `proccess.env.TOKEN` we need to enter our bot's API which we can obtain from specific telegram bot @BotFather
+<br>
 ![image](https://user-images.githubusercontent.com/114437342/216158048-b66c875c-bbd3-4311-973f-17428761b9a0.png)
+<br>
+Then, in your CLI, enter this command to install required Node.js module:
+```tf
+npm i node-telegram-bot-api
+```
+<h2>Final Step</h2>
+In your CLI, enter `screen` command and then `node app js` to start your bot.
+  
