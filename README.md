@@ -146,5 +146,9 @@ Then, in your CLI, enter this command to install required Node.js module:
 npm i node-telegram-bot-api
 ```
 <h2>Final Step</h2>
-In your CLI, enter `screen` command to constantly run your bot after closing CLI and then `node app js` to start your bot.
-  
+In your CLI, enter commands:
+```tf
+screen
+node app js
+```
+to start your bot and constantly run it after closing CLI.
