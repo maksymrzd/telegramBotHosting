@@ -1,6 +1,6 @@
 <h1 align="center">Hosting Telegram bot on AWS</h1>
 
-Setup `aws_instance` with desired OS and assign these `aws_security_group` using dynamic blocks.
+Setup `aws_instance` with desired OS and assign this `aws_security_group` using dynamic blocks.
 ```tf
 resource "aws_instance" "my-tg-bot" {
   ami                         = "ami-06c39ed6b42908a36"
@@ -15,7 +15,7 @@ resource "aws_instance" "my-tg-bot" {
 }
 
 ```
-These `aws_security_group` allow all traffic from http, https and ssh ports.
+This `aws_security_group` block allows all inbound traffic on 80, 443 and 22 ports.
 
 ```tf
 resource "aws_security_group" "tgbotsecuritygroup" {
@@ -43,7 +43,7 @@ resource "aws_security_group" "tgbotsecuritygroup" {
 
 Add `remote-exec` and `connection` blocks to your `aws_instance` block for terraform to connect to your instance and execute required commands.
 
-The first three commands in `remote_exec` block stand for updating all packages, installing git and cloning a public repository with required js files for bot.
+The first three commands in `remote_exec` block stand for updating all packages, installing git and cloning a public repository with required JavaScript files for bot.
 <br>
 The last three commands stand for installing node version manager, his activation and installing required node version.
 
@@ -125,31 +125,36 @@ resource "aws_security_group" "tgbotsecuritygroup" {
 
 }
 ```
-After finishing with your code, execute these commands to setup your infrastructure:
+After finishing your code, execute these commands to setup your infrastructure:
 ```tf
 terraform init
 terraform apply
 ```
 
-Then we have to connect to our EC2 instance either through SSH client or AWS.
+Then you have to connect to your EC2 instance either through SSH client or AWS Management Console.
 <br>
 Here we need to enter directory with our cloned files and change this line in app.js:
 ```tf
 const token = process.env.TOKEN
 ```
-Instead of `proccess.env.TOKEN` we need to enter our bot's API which we can obtain from specific telegram bot @BotFather
+Instead of `proccess.env.TOKEN` we need to enter our bot's API which we can obtain from specific telegram bot.<br>
+<a href="https://t.me/botfather">BOT LINK</a>
+<br>
 <br>
 ![image](https://user-images.githubusercontent.com/114437342/216158048-b66c875c-bbd3-4311-973f-17428761b9a0.png)
 <br>
-Then, in your CLI, enter this command to install required Node.js module:
+<br>
+
+<h2>Final Step</h2>
+
+In your CLI, enter this command to install required Node.js module:
 ```tf
 npm i node-telegram-bot-api
 ```
-<h2>Final Step</h2>
-
-In your CLI, enter commands:
+<br>
+Finally, enter these commands:
 ```tf
 screen
 node app js
 ```
-to start your bot and constantly run it after closing CLI.
+They will start your bot and constantly run it after closing CLI.
