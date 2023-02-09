@@ -42,3 +42,5 @@ override.tf.json
 
 # Built Visual Studio Code Extensions
 *.vsix
+terraform/.terraform.lock.hcl
+terraform/api.tfvars
