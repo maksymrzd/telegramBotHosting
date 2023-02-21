@@ -33,7 +33,7 @@ resource "aws_instance" "my-tg-bot" {
       "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash",
       ". ~/.nvm/nvm.sh",
       "nvm install 16",
-      "npm install -g npm@9.4.2",
+      "npm install -g npm@9.5.0",
       "cd testServer/",
       "npm i node-telegram-bot-api",
       "sed -i \"$(grep -n 'const token = process.env.TOKEN' app.js | cut -d: -f1)s/.*/const token = '${var.bot_api_key}'/\" app.js",
